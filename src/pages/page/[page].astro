@@ -1,0 +1,669 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Flashcard from '../../components/Flashcard.astro';
+import Quiz from '../../components/Quiz.astro';
+
+export function getStaticPaths() {
+  return [
+    {params: {page: '1'}},
+    {params: {page: '2'}},
+    {params: {page: '3'}},
+    {params: {page: '4'}},
+    {params: {page: '5'}},
+    {params: {page: '6'}},
+	{params: {page: '7'}},
+	{params: {page: '8'}},
+	{params: {page: '9'}},
+	{params: {page: '10'}},
+	{params: {page: '11'}},
+	{params: {page: '12'}},
+	{params: {page: '13'}},
+	{params: {page: '14'}},
+	{params: {page: '15'}},
+	{params: {page: '16'}},
+	{params: {page: '17'}},
+	{params: {page: '18'}},
+	{params: {page: '19'}},
+	{params: {page: '20'}},
+	{params: {page: '21'}},
+  ]
+}
+
+//ADD PAGES UP HERE !!!!!!!!!!!!!!!!!!
+
+const { page } = Astro.params;
+const pageNumber = parseInt(page);
+
+
+const flashcards = [
+  { front: "What is the capital of France?", back: "Paris" },
+  { front: "Who wrote 'Romeo and Juliet'?", back: "William Shakespeare" },
+  { front: "What is the chemical symbol for water?", back: "H2O" },
+  { front: "What is the largest planet in our solar system?", back: "Jupiter" },
+];
+
+const quizQuestions = [
+  {
+    question: "What is the capital of Japan?",
+    options: ["Tokyo", "Beijing", "Seoul", "Bangkok"],
+    correctAnswer: 0
+  },
+  {
+    question: "Who painted the Mona Lisa?",
+    options: ["Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso", "Michelangelo"],
+    correctAnswer: 0
+  },
+  {
+    question: "What is the largest ocean on Earth?",
+    options: ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+    correctAnswer: 0
+  },
+  {
+    question: "What is the chemical symbol for gold?",
+    options: ["Au", "Ag", "Fe", "Cu"],
+    correctAnswer: 0
+  },
+];
+
+const empty = [];
+
+
+const shortAnswerQuestions = [
+  {
+    question: "Explain the process of photosynthesis in your own words.",
+    answer: "Photosynthesis is the process by which plants use sunlight, water, and carbon dioxide to produce oxygen and energy in the form of sugar."
+  },
+  {
+    question: "What is the significance of the Declaration of Independence?",
+    answer: "The Declaration of Independence is a document that announced the 13 American colonies' separation from Great Britain and their establishment as independent states. It outlined the principles of individual rights and the right to revolution."
+  }
+];
+---
+
+<Layout title={`Page ${page} - Wage Gap`}>
+	<h1>Page {page}</h1>
+
+	{pageNumber === 1 && (
+		<>
+			<h2>All About Black Maternal Mortality:</h2>
+			<div class="content">
+				<h3>What is the Issue:</h3>
+				<p>
+					Black Maternal Mortality has been and still is a pressing issue in the United States today. 
+				</p>
+				<img src="/images/statpage1.png" alt={`statpage1`} class="float-img"/>
+				<p>
+					There are several black mothers who’ve undergone complications in their pregnancy (such as preeclampsia), but do not get the proper care they need. This is typically because of the discrimination they face when seeking healthcare for these issues (Chambers et. al) This can affect these mothers’ and infants’ health, and in some cases, lead to death- often solely due to their racial identity. Unfortunately, this is still a common occurrence in the United States, and we have not taken significant action to solve this issue.
+				</p>
+				<div class="quiz-calculator-container">
+				<div>
+				</div>
+				<div class="quiz-section">
+					<Quiz questions={
+						[
+							{
+								question: "What is the median mortality rate of all ethnicities on the graph? ",
+								options: ["2.27", "22.6", "33.1283"],
+								correctAnswer: 1
+							},
+							{
+								question: "Is the maternal mortality rate higher or lower than the median?",
+								options: ["Higher", "Lower"],
+								correctAnswer: 0
+							},
+						]
+					} shortAnswerQuestions={empty} />
+				</div>
+				<div class="calculator-section">
+					<h2>Desmos Calculator</h2>
+					<p>Use this embedded Desmos calculator for your mathematical needs!</p>
+					<div class="calculator-container">
+						<iframe src="https://www.desmos.com/calculator/scientific" width="100%" height="500" style="border: 1px solid #ccc" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+			</div>
+		</>
+	)}
+	{pageNumber === 2 && (
+		<>
+			<h2>Choose a Celebrity to learn about!</h2>
+			<div class="content">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Link</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Serena Williams</td>
+							<td><a href="https://www.usatoday.com/story/sports/tennis/2022/04/07/serena-williams-near-death-childbirth-complications/9504616002/#:~:text=I'm%20used%20to%20getting,And%20her%20pain%20increased.&text=Although%20the%20hospital%20staff%20didn,by%20experts%20to%20be%20preventable.%22" target="_blank">Serena Williams describes near-death experience she had after giving birth to daughter Olympia</a></td>
+						</tr>
+						<tr>
+							<td>Tori Bowie</td>
+							<td><a href="https://www.npr.org/2023/06/13/1181971448/tori-bowie-an-elite-olympic-athlete-died-of-complications-from-childbirth" target="_blank">Tori Bowie, an elite Olympic athlete, died of complications from childbirth</a></td>
+						</tr>
+						<tr>
+							<td>Allyson Felix</td>
+							<td><a href="https://www.cdc.gov/hearher/allyson-felix/index.html" target="_blank">Unexpected Pregnancy Complications: Allyson Felix's Story</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</>
+	)}
+	{pageNumber === 3 && (
+		<>
+			<h2>Learn about your Celebrity!</h2>
+			<div class="quiz-section">
+			<Quiz questions={empty} 
+				shortAnswerQuestions={[
+					{
+						question: "What are 2 things you learned from reading these articles.",
+					}]} />
+			</div>
+		</>
+	)}
+	{pageNumber === 4 && (
+		<>
+			<h2>Meet Aaliyah</h2>
+			<div class="content">
+				<h3> All about Aaliyah: </h3>
+				<img src="/images/aaliyah.png" alt={`Aaliyah Introduced`} class="float-img" />
+				<p>
+					Age: 28
+					<br>
+					Income: $70,000          
+					<br>
+					Weeks Pregnant: 24
+					<br>
+					This is her first pregnancy
+					<br>
+					She has her husband and mother as a support system
+					<br>
+					She grew up in a middle class family with her mom 
+					<br>
+					She's active and like to run and yoga
+				</p>
+			</div>
+		</>
+	)}
+	{pageNumber === 5 && (
+		<>
+			<h2>Aaliyah talks to a white doctor.</h2>
+			<div class="content">
+				<p>Aaliyah is happy and well… until one day, when she starts to experience pain. With concern about her health as well as the baby, Aaliyah goes to the doctor’s office. </p>
+				<h3> Scene 1 </h3>
+				<img src="/images/aaliyahtalkstodoc.png" alt={`White Doctor`} class="float-img" />
+
+				<p style="margin-left:50px" class=> Doctor: “Can you describe your symptoms to me?”</p>
+				
+				<p style="margin-left:50px" class=>
+				Aaliyah: “Hello! I am 24 weeks pregnant right now. I haven’t been feeling myself lately, I’ve been more tired than usual, having frequent headaches, and I am concerned about me and my baby's health.”
+				<br>
+				<br>
+				Doctor: “This is normal because your body is changing, a lot of people experience this. You will be fine, just get some rest.” 
+				</p>	
+				<p> Aaliyah goes home without receiving any proper care/diagnostics. </p>
+				<p style="margin-top:0.5vh" class=><i>Aaliyah talks to her doctor</i></p>
+			</div>
+		</>
+	)}
+
+	{pageNumber === 6 && (
+		<>
+			<h2>Symptoms arise...</h2>
+			<p>As days go by since her first visit to the doctor, Aaliyah starts to notice more complications arise. On top of frequent headaches, she develops blurry vision, abdominal pain, and worsening shortness of breath. </p>
+			<img src="/images/pain.png" alt={`Symptoms arise.`} class="float-img" />
+			<p><i>These symptoms are typically indicative of preeclampsia, a high blood pressure condition that can develop during pregnancy. This condition can affect other organs in your body such as the liver or the kidneys, which can put the mother and the fetus at risk. It is important that mothers with this condition can get treatment as soon as possible in order to avoid possible complications that could put their life at risk. (“Preeclampsia: Toxemia, Causes, Symptoms & Risk Factors”).</i> </p>
+		</>
+	)}
+	
+	{pageNumber === 7 && (
+		<>
+			<h2>Choose a doctor to take further care with...</h2>
+			<div class="content">
+				<p><a href={`/page/8`}>White Doctor</a></p>
+				<p>OR</p>
+				<p><a href={`/page/9`}>Black Doctor</a></p>
+			</div>
+		</>
+	)}
+
+	{pageNumber === 8 && (
+		<>
+			<h2>After visit with white doctor</h2>
+			<div class="content">
+				<img src="/images/whitedoc.png" alt={`Post-White doctor`} class="float-img" />
+				<p>Aaliyah decides to call the doctor again, hoping the doctor would take her more seriously when she talks about the recurrence and worsening of the symptoms. </p>
+				<p>Doctor: ”Hello, what seems to be the concern?”</p>
+				<p>Aaliyah: ”Hi, my symptoms got worse. I’ve developed blurry vision, shortness of breath, abdominal pain.”</p>
+				<p>Doctor: “Oh don’t worry, you just need to rest and take it easy. Your body is probably overreacting to all of the changes you are experiencing.”</p>
+				<img src="/images/statpagewhite.png" alt={`Post-White doctor`} class="float-img" />
+				<p>Unfortunately, just like Aaliyah, many Black women are often discriminated against during their healthcare visits, even more so than white women. There has been a larger amount of reports from Black women ages 18-64 of getting discriminated against during visits to a healthcare provider than White women, with that of Black women being 6% higher. (“Women's Experiences with Provider Communication and Interactions in Health Care Settings: Findings from the 2022 KFF Women's Health Survey”). </p>
+				<p style="margin-top: 11vh;">One potential consequence is the death of the mother, especially with severe complications or disorders.</p>
+				<p>Take a look at this image to the left, which shows us how many deaths there were per every 100,000 live births in 2022: </p>
+				<div class="quiz-section">
+					<Quiz questions={empty} 
+						shortAnswerQuestions={[
+							{
+								question: "As demonstrated in the image above, is there a higher or lower chance of death for black moms and their infants as opposed to white moms? Why do you think this is?",
+							}]}
+						 />
+				</div>
+				<p>Another possible outcome is stillbirth, where the baby dies in the mother's womb.</p>
+				<p>Black women in America are over twice as likely to have a stillbirth when compared to white women, and this is often because physicians often dismiss the concerns of Black women, who often have complications that could lead to severe consequences with the pregnancy and the baby eventually dying as a result (Eldeib and Hager). </p>
+				<div class="quiz-section">
+				<Quiz questions={empty} 
+					shortAnswerQuestions={[
+						{
+								question: "What effects could a stillbirth have on a mother and their family?",
+						}]}
+					/>
+				</div>
+				<p>These are things that Aaliyah could have gone through because of the dismissal of her concerns.</p>
+				<p>Now, see what would have happened if Aaliyah chose to go to a Black female doctor who takes her concerns seriously.</p>
+			</div>
+		</>
+	)}
+
+
+	{pageNumber === 9 && (
+		<>
+			<h2>After visit with black doctor</h2>
+			<div class="content">
+				<p>Aaliyah decided to get a second opinion, she reached out to a family friend and they recommended a local black doctor. </p>
+				<p>	Aaliyah: “Hi, my name is Aaliyah, I am 30 weeks pregnant, I have been experiencing a lot of symptoms, and am unsure of what it is - they are progressively getting worse.” </p>
+				<p>Doctor: “Can you list out your symptoms for me?” </p>
+				<p>Aaliyah: “I’ve developed blurry vision, shortness or breath, abdominal pain, headaches and am very tired. I am just concerned for the health of myself and my baby. I have tried talking to another doctor about this, but was dismissed without any proper care or guidance. ” </p>
+				<p>Doctor: “Oh no! I am so sorry about your other doctor not taking you seriously! This sounds like a case of preeclampsia, we can test this with a simple blood test, urine test, and ultrasound to check the size of the baby.”</p>
+				<h3>Doctor diagnosed Aaliyah with Preeclampsia</h3>
+				<p>Press the button to explore possible treatments.</p>
+			</div>
+		</>
+	)}
+
+	{pageNumber === 10 && (
+		<>
+			<h2>Treatment options</h2>
+			<p><i>Recommends early delivery for the baby</i></p>
+			<p><i>Seizures, heart issues (cardiomyopathy), pulmonary edema, (baby – Growth restrictions, preterm birth, intrauterine death)</i></p>
+			<p><i>Management → Anti-hypertensive meds (hydrolozine, ) anti-seizure meds (magnesium sulfate), preventative → baby aspirin. </i></p>
+			<p><i>If black women don’t get diagnosed they a much higher maternal mortality rate. Other complications can be Seizures, Coma, Stroke → Can lead to serious health problems. </i></p>
+		</>
+	)}
+
+		{pageNumber === 11 && (
+		<>
+			<h2>Aaliyah wants to raise awareness</h2>
+			<p>Aaliyah is happy that she had the baby successfully, but doesn’t want others to go through the same pain she had to go through. She decides to do something about the issue. </p>
+			<p>What should she do??</p>
+			<p><a href={`/page/12`}>Write a book about the topic and raise awareness</a></p>
+			<p>OR</p>
+			<p><a href={`/page/14`}>Start a non-profit organization in which they do protests, speak at certain events, workshops, etc.</a></p>
+		</>
+	)}
+
+	
+	{pageNumber === 12 && (
+		<>
+			<h2>Help Aaliyah put correct information into her book!</h2>
+				<div class="quiz-section">
+					<Quiz questions={
+						[
+							{
+								question: "Which of these statements are NOT correct?",
+								options: ["Black mothers are over twice as likely to undergo a stillbirth as white women.", "Black maternal mortality happens due to a lack of money to access healthcare.", "BOTH black mothers and their infants have a higher chance of mortality than white or hispanic mothers and infants. "],
+								correctAnswer: 1
+							}
+						]
+					} shortAnswerQuestions={empty} />
+				</div>
+		</>
+	)}
+
+
+	{pageNumber === 13 && (
+		<>
+			<h2>Aaliyah wins award! placeholder</h2>
+		</>
+	)}
+
+	{pageNumber === 14 && (
+		<>
+			<h2>Help Aaliyah start a non-profit organization!</h2>
+			<p>Along with the help of the black doctor she visited, as well as 3 of her other friends named Destiny, Jasmine and Renee, Aaliyah created a non-profit organization called Justice for Black Mothers. They are planning to present at an event, but they need facts and information to put into this presentation, and they need your help. </p>
+				<div class="quiz-section">
+					<Quiz questions={
+						[
+							{
+								question: "Which of these statements are NOT correct?",
+								options: ["Black mothers are over twice as likely to undergo a stillbirth as white women.", "Black maternal mortality happens due to a lack of money to access healthcare.", "BOTH black mothers and their infants have a higher chance of mortality than white or hispanic mothers and infants. "],
+								correctAnswer: 1
+							}
+						]
+					} shortAnswerQuestions={empty} />
+				</div>
+		</>
+	)}
+
+
+	{pageNumber === 15 && (
+		<>
+			<h2>Outreach</h2>
+			<p>Want to learn more about the issue of black maternal mortality? Or to get involved in the fight against discrimination in healthcare? Look no further! Here are some places where you can find more info on what you can do to make an impact on the issue: </p>
+			<p>Further Info on the Issue: </p>
+			<ul>
+				<li>Reducing health inequities for Black pregnant people <a href="https://www.vcuhealth.org/news/reducing-health-inequities-for-black-pregnant-people/#:~:text=Initiatives%20include%20evaluating%20care%20practices%20for%20potential,bias%20so%20it%20doesn't%20impact%20our%20care" target="_blank" rel="noopener noreferrer">Visit Website</a></li>
+				<li>Why are Black maternal mortality rates so high? <a href="https://mcpress.mayoclinic.org/pregnancy/black-maternal-mortality-rate/" target="_blank" rel="noopener noreferrer">Learn More</a></li>
+			</ul>
+			<p>How to get involved: </p>
+			<ul>
+				<li>Join the <a href="https://blackmamasmatter.org/connect/" target="_blank" rel="noopener noreferrer">Black Mamas Matter Alliance</a></li>
+				<li>Get involved in <a href="https://www.sistersong.net/" target="_blank" rel="noopener noreferrer">Sister Song</a></li>
+			</ul>
+		</>
+	)}
+
+	{pageNumber === 16 && (
+		<>
+			<h2>Race Wage Gap problems</h2>
+			<p>When Jin and Ana research, this is what they find:</p>
+			<img src="/images/racepractice.png" alt={`Statpage 8`} class="float-img" />
+			<p>
+				1. The following section will explore the Median Absolute Deviation (MAD) for all women and all men.
+				Let’s look at the men as an example: 
+				<br>
+				<br>
+				Step 1: Identify the median salary of all men: 1,202
+				Step 2: Find the absolute value(the positive) differences between the median salary for each race and the median salary of all women identified in Step 1. 
+				<br>
+				<br>
+				Asian: |(Asian Median Salary )- (Median Salary for Men)| = |(1,635)-(1,202)| = 433
+				<br>
+				<br>
+				Hispanic: |(Hispanic Median Salary)-(Median Salary for Men)| = |(915)-(1,202)| = 287
+				<br>
+				<br>
+				Black: |( Black Median Salary) - (Median Salary for Men )| =|(970)-(1,202)|= 232
+				<br>
+				<br>
+				White: | (White Median Salary)-(Median Salary for All Women)| = |(1,352)-(1,202)| = 150
+				<br>
+				<br>
+				Step 3: Sort these 4 differences from least to most: 150, 232,  287, 433
+				<br>
+				<br>
+				Step 4: Find the median of these differences, this will be your MAD:
+				<br>
+				<br>
+				MAD =  (232+287)/2 = 259.5 
+			</p>
+			<h18>
+			Now, use this process to find the MAD for all women:
+
+			Identify the median salary of all women, and answer below: 
+			<br>
+			<br>
+			Find the absolute value(the positive) differences between the median salary for each race and the median salary of all women identified in Step 1
+			<br>
+			<br>
+			Asian: |(Asian Median Salary )- (Median Salary for Women)| = 
+			<br>
+			<br>
+			Hispanic: |(Hispanic Median Salary)-(Median Salary for Women)| = 
+			<br>
+			<br>
+			Black: |( Black Median Salary) - (Median Salary for All Women)|  =
+			<br>
+			<br>
+			White: | (White Median Salary)-(Median Salary for All Women)|  =
+			<br>
+			<br>
+			Sort these 4 differences from smallest to biggest:
+			<br>
+			<br>
+			Find the median of these differences, this will be your MAD:
+			</h18>
+			<style>
+				h18{
+					color:hotpink;
+				}
+			</style>
+			<div class="quiz-calculator-container">
+				<div class="quiz-section">
+					<Quiz questions={
+						[
+							{
+								question: "Woman's MAD",
+								options: ["3,000$", "2,500$", "2,000$", "15$"],
+								correctAnswer: 0
+							},
+							{
+								question: "Find the difference between median salary of Asian men, versus men",
+								options: ["433$", "245,000$", "123$", "532$"],
+								correctAnswer: 1
+							},
+							{
+								question: "So is the difference higher or lower than the MAD?",
+								options: ["Higher", "Lower"],
+								correctAnswer: 0
+							},
+							{
+								question: "Find the difference between median salary of Hispanic women, versus women",
+								options: ["205$", "122$", "212$", "513$"],
+								correctAnswer: 3
+							},
+							{
+								question: "So is the difference higher or lower than the MAD?",
+								options: ["Higher", "Lower"],
+								correctAnswer: 0
+							},
+						]
+					} shortAnswerQuestions={empty} />
+				</div>
+				<div class="calculator-section">
+					<h2>Desmos Calculator</h2>
+					<p>Use this embedded Desmos calculator for your mathematical needs!</p>
+					<div class="calculator-container">
+						<iframe src="https://www.desmos.com/calculator/scientific" width="100%" height="500" style="border: 1px solid #ccc" frameborder="0"></iframe>
+					</div>
+				</div>
+			</div>
+		</>
+	)}
+
+	{pageNumber === 17 && (
+		<>
+			<h2>Interview</h2>
+			<p>Here is a conversation with Latina executives and career leaders talking about unequal pay and how they handle the effects of the issue: </p>
+			<br>
+			<p><a href="https://youtu.be/RPYBLhqe07o">https://youtu.be/RPYBLhqe07o</a> (watch up to 6:34 and stop)</p>
+			<div class="quiz-section">
+				<Quiz questions={empty} 
+					shortAnswerQuestions={[
+					{
+						question: "What are 2 things you learned from watching this video",
+					}]} />
+			</div>
+		</>
+	)}
+
+	{pageNumber === 18 && (
+		<>
+			<h2>Take Action!</h2>
+			<p>
+				After reflecting on this research, Jin and Ana decide to take action.
+				<br><br>
+				Jin: “I think this is such an important issue that affects everyone, including us!” 
+				<br><br>
+				Ana: “We need to spread more awareness so we can decrease the wage gap and achieve equity and equality.”
+				<br><br>
+				Jin: “You’re right, Ana! I think we can let more people know about this issue by creating a public social media account!”
+				<br><br>
+				Ana: “ I think we should bring up this problem with our Human Resources (HR) team!”
+			</p>
+			<h3>
+				What do you think Jin and Ana should do? 
+			</h3>
+			<p><a href={`/page/19`}>Create Social Media Account</a></p>
+			<p>OR</p>
+			<p><a href={`/page/20`}>Talk to their HR (Human Resources) Team</a></p>
+		</>
+	)}
+	{pageNumber === 19 && (
+		<>
+			<h2>Create Social Media</h2>
+			<img src="/images/sm1.png" alt={`sm1`} class="float-img" />
+			<img src="/images/sm2.png" alt={`sm1`} class="float-img" />
+			<p>
+				As time went on, Jin and Ana received more popularity, and their situation gained more awareness. More people mentioned that they experienced this problem in their workplace and expressed that they wanted to take action on this issue as well. Through this, more people tried to make change in this issue, and this effort started collective bargaining among Jin and Ana’s workplace on this issue, as well as in other workplaces as well. 
+			</p>
+			<p>
+			After two years of advocating and raising awareness of the wage gap issue, Jin and Ana eventually received equal salary. 
+			</p>
+		</>
+	)}
+	{pageNumber === 20 && (
+		<>
+			<h2>Talk to HR</h2>
+			<img src="/images/hr1.png" alt={`hr1`} class="float-img" />
+			<img src="/images/hr2.png" alt={`hr1`} class="float-img" />
+			<p>
+				Through advocating against the wage gap issue and voicing their concerns to their HR manager, Jin and Ana eventually received equal salary. 
+			</p>
+		</>
+	)}
+	{pageNumber === 21 && (
+		<>
+			<h2>Conclusion</h2>
+			<p>Though Jin’s and Ana’s experiences were just a story, the wage gap issue is a problem that affects EVERYBODY. While Jin and Ana eventually received equal salary, it was only because of their persistence and willingness to bring social change. Here are ways YOU can help raise awareness about wage gap in your community:</p>
+			<li>
+				Share this website to others in your community 
+			</li>
+			<li>
+				Encourage students to research wage inequality further.
+			</li>
+			<li>
+				Have students find their own examples of wage inequality and present their findings.
+			</li>
+			<li>
+				Challenge students to think critically about the causes and effects of wage inequality.
+			</li>
+			<li>
+				Inspire students to advocate for fair pay and equal opportunities for all
+			</li>
+		</>
+	)}
+	
+	<div class="navigation">
+		{pageNumber === 1 && <a href={`/index.html`} class="nav-button prev">Home</a>}
+		{pageNumber > 1 && pageNumber != 14 && <a href={`/page/${pageNumber - 1}`} class="nav-button prev">Previous Page</a>}
+		{pageNumber < 18 && pageNumber != 1 && pageNumber != 7 && pageNumber != 8 && pageNumber!= 9 && pageNumber!= 3 && pageNumber!= 13 && pageNumber!= 12 && pageNumber!= 11 && pageNumber!= 14 && pageNumber!= 15 &&<a href={`/page/${pageNumber + 1}`} class="nav-button next">Next Page</a>}
+		{pageNumber === 19 && <a href={`/page/21`} class="nav-button next">Next Page</a>}
+		{pageNumber === 8 && <a href={`/page/9`} class="nav-button next">See a Black Doctor</a>}
+		{pageNumber === 9 && <a href={`/page/10`} class="nav-button next">Explore treatment options</a>}
+		{pageNumber === 13 && <a href={`/page/15`} class="nav-button next">Outreach</a>}
+		{pageNumber === 15 && <a href={`/about`} class="nav-button next">About us</a>}
+	</div>
+</Layout>
+
+<style>
+	h1{
+		color: rgb(var(--red));
+	}
+	h2{
+		color: rgb(var(--brun-light));
+	}
+	h3{
+		color: rgb(var(--accent-dark));
+	}
+	h4{
+		color: rgb(var(--light-brun));
+	}
+	.content {
+		margin-top: 1rem;
+		line-height: 1.6;
+	}
+	.float-img {
+		float: left;
+		margin: 0 15px 10px 0;
+		border-radius:5%;
+	} 
+	.content {
+		overflow: hidden;
+	}
+	.navigation {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: space-between;
+	}
+	.nav-button {
+		padding: 0.5rem 1rem;
+		background-color: rgb(var(--red));
+		color: white;
+		text-decoration: none;
+		border-radius: 4px;
+	}
+	.nav-button:hover {
+		background-color: rgb(var(--accent-dark));
+	}
+	.prev {
+		margin-right: auto;
+	}
+	.next {
+		margin-left: auto;
+	}
+	.flashcard-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+		justify-content: center;
+		margin-top: 2rem;
+	}
+	.quiz-calculator-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+	.quiz-section, .calculator-section {
+		flex: 1;
+		min-width: 300px;
+	}
+	.calculator-container {
+		margin-top: 1rem;
+		width: 100%;
+	}
+	@media (max-width: 768px) {
+		.quiz-calculator-container {
+			flex-direction: column;
+		}
+	}
+	table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
