@@ -2,11 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="CMJ - Wage Gap">
-	<h1>Welcome to our project!</h1>
-	<img src="/images/cmj.png" alt={`statpage2`} class="float-img" width=200px/>
-	<p>CMJ's mission:</p>
-	<p>We aim to bring antiracist assessment and measurement practices to all learners across the nation. Our work is to inspire, prepare, and support a critical mass of measurement professionals and partners as they work towards a socially just assessment and measurement system.</p>	<div class="navigation">
+<Layout title="CMJ - Black Maternal Mortality">
+	<h1>All about Black Maternal Mortality</h1>
+	<img src="/images/logo.png" alt={`statpage2`} class="float-img" >
+	<p>What is the issue:</p>
+	There are several mothers who’ve undergone complications in their pregnancy (such as preeclampsia), but do not get the proper care they need, typically because of discrimination they face when seeking healthcare for these issues (Chambers et. al).  This can affect these mothers’ and infants’ health, and in some cases, lead to death. 
+	</p>
+	<p>
+	This is something that is especially seen a lot among Black mothers. Black Maternal Mortality is the amount of maternal deaths among Black women for every 100,000 live births. The Black Maternal Mortality rate tends to be higher than that of many other races. This is primarily due to the discrimination they face when seeking healthcare, which is primarily due to their racial identity. 
+	</p>
+	<p>
+	The consequences of this unfair treatment can be deadly, for both the mother and the infant. Several mothers and infants have died because of this issue. Unfortunately, we still haven’t taken sufficient action on this issue that can affect so many lives
+	</p>
 	<a href="/page/1" class="next-button">Start Reading</a>
 	<p> Hit start reading to begin... </p>
 	</div>
@@ -31,4 +38,9 @@ import Layout from '../layouts/Layout.astro';
 	.next-button:hover {
 		background-color: rgb(var(--accent-dark));
 	}
+	.float-img {
+		float: left;
+		margin: 0 15px 10px 0;
+		border-radius:5%;
+	} 
 </style>
